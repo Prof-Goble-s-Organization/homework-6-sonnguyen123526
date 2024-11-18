@@ -39,7 +39,5 @@ public class COMP232SortableLinkedList<E extends Comparable<E>> extends COMP232D
 				position.prev = insertNode;
 			}
 		}
-
-
 	}
 }
