@@ -1,16 +1,17 @@
 import java.util.Arrays;
 
 public class HeapSort {
+
     public static void heapSort(Integer[] values) {
         int length = values.length;
-        for(int i = length/2 -1; i >=0; i++){
+        for(int i = length/2 -1; i >= 0; i--){
             heapify(values, length, i);
         }
         for (int i = length - 1; i >= 0; i--) {
             swap(values, 0, i);
             heapify(values, i, 0);
         }
-        }
+    reverseArray(values);
     }
 
     private static void heapify(Integer[] values, int heapSize, int rootIndex) {
@@ -32,6 +33,16 @@ public class HeapSort {
         }
     }
 
+    private static void reverseArray(Integer[] values) {
+        int left = 0;
+        int right = values.length - 1;
+        while (left < right) {
+            swap(values, left, right);
+            left++;
+            right--;
+        }
+    }
+
     private static void swap(Integer[] values, int i, int j) {
         int curr = values[i];
         values[i] = values[j];
@@ -47,4 +58,4 @@ public class HeapSort {
         heapSort(list);
         System.out.println("  Sorted List:" + Arrays.toString(list));
     }
-
+}
